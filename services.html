@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#021124" />
+<title>Our Services — axiumsystems</title>
+<meta name="description" content="Explore our services: Website development, e-commerce, school management systems, hospital portals, business software, mobile apps, and AI integration." />
+
+<!-- Favicon -->
+<link rel="icon" href="logo.jpg" type="image/jpeg">
+<link rel="apple-touch-icon" href="logo.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* PREMIUM CORPORATE DARK BLUE THEME */
+  --ax-bg:#021124;
+  --ax-surface:#062246;
+  --ax-surface-2:#0a3163;
+  --ax-border:#124b91;
+  --ax-text:#ffffff;
+  --ax-text-muted:#a0c4e8;
+  --ax-cyan:#00d2ff;
+  --ax-blue:#0056D2;
+  --ax-grad:linear-gradient(135deg,#00d2ff 0%,#0056D2 100%);
+  --ax-radius:16px;
+  --ax-radius-lg:24px;
+  --ax-shadow:0 15px 35px -10px rgba(0,0,0,.5);
+  --ax-trans:.3s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--ax-bg);color:var(--ax-text);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body.no-scroll{overflow:hidden;}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.1;letter-spacing:-.02em;margin:0 0 .6em;color:var(--ax-text);}
+h1{font-size:clamp(2.5rem,6vw,4.5rem);}
+h2{font-size:clamp(2rem,4vw,3rem);}
+h3{font-size:clamp(1.3rem,2.5vw,1.5rem);}
+p{margin:0 0 1rem;color:var(--ax-text-muted);}
+a{color:var(--ax-cyan);text-decoration:none;transition:color var(--ax-trans);}
+a:hover{color:var(--ax-text);}
+img{max-width:100%;display:block;}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit;}
+
+.container{width:min(100% - 2rem,1280px);margin-inline:auto;}
+.grad-text{background:var(--ax-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.section{padding:clamp(4rem,8vw,7rem) 0;position:relative;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.9rem 1.8rem;border-radius:99px;font-weight:600;font-size:1rem;transition:all var(--ax-trans);border:1px solid transparent;text-decoration:none;}
+.btn-primary{background:var(--ax-cyan);color:#021124;}
+.btn-primary:hover{color:#021124;transform:translateY(-3px);box-shadow:0 15px 30px -10px rgba(0,210,255,.5);}
+.btn-outline{background:transparent;color:var(--ax-text);border-color:var(--ax-border);}
+.btn-outline:hover{border-color:var(--ax-cyan);color:var(--ax-cyan);transform:translateY(-3px);background:rgba(0,210,255,.05);}
+.btn svg{width:18px;height:18px;flex:none;}
+
+/* NAVBAR (Same as Index) */
+.nav{position:fixed;inset:0 0 auto 0;z-index:1000;padding:1.2rem 0;transition:all var(--ax-trans);border-bottom:1px solid transparent;}
+.nav.scrolled{background:rgba(2,17,36,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--ax-border);padding:.8rem 0;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;}
+.brand{display:flex;align-items:center;gap:.85rem;text-decoration:none;flex:none;}
+.brand-logo{width:46px;height:46px;border-radius:12px;padding:2px;background:var(--ax-grad);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 15px -4px rgba(0,210,255,.4);}
+.brand-logo img{width:100%;height:100%;border-radius:10px;object-fit:cover;background:#062246;}
+.brand-text{display:flex;flex-direction:column;line-height:1;}
+.brand-text strong{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:.05em;color:var(--ax-text);}
+.brand-text small{font-size:.6rem;letter-spacing:.25em;color:var(--ax-text-muted);margin-top:.3rem;font-weight:600;}
+
+.nav-links{display:flex;align-items:center;gap:.5rem;list-style:none;margin:0;padding:0;}
+.nav-links a{padding:.6rem 1rem;font-size:.95rem;font-weight:500;color:var(--ax-text-muted);border-radius:8px;}
+.nav-links a:hover{color:var(--ax-text);background:rgba(255,255,255,.05);}
+.nav-links a.active{color:var(--ax-text);}
+.nav-cta{margin-left:.5rem;}
+.menu-btn{display:none;width:44px;height:44px;border-radius:10px;align-items:center;justify-content:center;border:1px solid var(--ax-border);background:var(--ax-surface);}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--ax-text);position:relative;border-radius:2px;transition:background .2s;}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--ax-text);border-radius:2px;transition:transform var(--ax-trans);}
+.menu-btn span::before{top:-6px;}
+.menu-btn span::after{top:6px;}
+body.menu-open .menu-btn span{background:transparent;}
+body.menu-open .menu-btn span::before{transform:translateY(6px) rotate(45deg);}
+body.menu-open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg);}
+
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity var(--ax-trans);z-index:998;}
+body.menu-open .backdrop{opacity:1;pointer-events:auto;}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(320px,85vw);background:var(--ax-surface);border-left:1px solid var(--ax-border);padding:6rem 1.5rem 2rem;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:999;}
+body.menu-open .drawer{transform:translateX(0);}
+.drawer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem;}
+.drawer a{display:block;padding:1rem;font-size:1.1rem;font-weight:500;color:var(--ax-text-muted);border-radius:10px;}
+.drawer a:hover,.drawer a.active{color:var(--ax-text);background:var(--ax-surface-2);}
+
+/* PAGE HERO */
+.page-hero{position:relative;padding:clamp(9rem,16vw,12rem) 0 clamp(3rem,6vw,5rem);overflow:hidden;text-align:center;}
+.page-hero::before{content:"";position:absolute;top:-20%;left:50%;width:min(1000px,120vw);height:min(1000px,120vw);transform:translateX(-50%);background:radial-gradient(circle at center,rgba(0,210,255,.15) 0%,transparent 60%);pointer-events:none;}
+.page-hero .eyebrow{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ax-cyan);margin-bottom:1.5rem;background:rgba(0,210,255,.1);padding:.4rem 1rem;border-radius:99px;border:1px solid rgba(0,210,255,.2);position:relative;}
+.page-hero h1{position:relative;margin-bottom:1rem;max-width:900px;margin-inline:auto;}
+.page-hero p{position:relative;max-width:600px;margin:0 auto;font-size:1.1rem;}
+
+/* DETAILED SERVICES GRID */
+.services-detail-grid{display:grid;grid-template-columns:1fr;gap:2rem;}
+.service-detail-card{
+  background:var(--ax-surface);
+  border:1px solid var(--ax-border);
+  border-radius:var(--ax-radius-lg);
+  padding:3rem 2.5rem;
+  transition:all var(--ax-trans);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.service-detail-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--ax-grad);transform:scaleX(0);transform-origin:left;
+  transition:transform .4s cubic-bezier(.4,0,.2,1);
+}
+.service-detail-card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--ax-shadow);
+  border-color:rgba(0,210,255,.4);
+  background:var(--ax-surface-2);
+}
+.service-detail-card:hover::before{transform:scaleX(1);}
+.sd-icon{
+  width:64px;height:64px;border-radius:16px;
+  background:rgba(0,210,255,.08);
+  border:1px solid rgba(0,210,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ax-cyan);margin-bottom:1.5rem;
+  transition:all var(--ax-trans);
+}
+.service-detail-card:hover .sd-icon{background:var(--ax-cyan);color:#021124;}
+.sd-icon svg{width:32px;height:32px;}
+.service-detail-card h3{margin-bottom:1rem;font-size:1.4rem;}
+.service-detail-card > p{font-size:1rem;margin-bottom:1.5rem;flex:1;}
+.sd-list{list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:.75rem;}
+.sd-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.95rem;color:var(--ax-text-muted);}
+.sd-list svg{width:18px;height:18px;color:var(--ax-cyan);flex:none;margin-top:.2rem;}
+.sd-action{margin-top:auto;}
+
+/* HOW WE WORK (PROCESS) */
+.process-section{background:var(--ax-surface);border-top:1px solid var(--ax-border);border-bottom:1px solid var(--ax-border);}
+.process-grid{display:grid;grid-template-columns:1fr;gap:2rem;}
+.process-step{position:relative;padding:2rem;background:var(--ax-bg);border:1px solid var(--ax-border);border-radius:var(--ax-radius);}
+.process-num{width:48px;height:48px;border-radius:50%;background:var(--ax-grad);color:#021124;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;}
+.process-step h4{font-size:1.2rem;margin-bottom:.75rem;color:var(--ax-text);}
+.process-step p{font-size:.95rem;margin:0;}
+
+/* FAQ SECTION */
+.faq-section{padding-bottom:8rem;}
+.faq-grid{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;}
+.faq-item{background:var(--ax-surface);border:1px solid var(--ax-border);border-radius:var(--ax-radius);overflow:hidden;}
+.faq-btn{width:100%;text-align:left;padding:1.5rem;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;color:var(--ax-text);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.1rem;transition:background var(--ax-trans);}
+.faq-btn:hover{background:var(--ax-surface-2);}
+.faq-icon{width:24px;height:24px;border-radius:50%;background:rgba(0,210,255,.1);color:var(--ax-cyan);display:flex;align-items:center;justify-content:center;flex:none;transition:transform var(--ax-trans);}
+.faq-item.active .faq-icon{transform:rotate(180deg);background:var(--ax-cyan);color:#021124;}
+.faq-content{max-height:0;overflow:hidden;transition:max-height .4s ease-out;padding:0 1.5rem;}
+.faq-content p{padding-bottom:1.5rem;margin:0;font-size:.95rem;line-height:1.6;}
+.faq-item.active .faq-content{max-height:300px;}
+
+/* CTA BANNER */
+.cta-banner{margin:0 auto;max-width:1000px;padding:clamp(3rem,6vw,5rem);border-radius:var(--ax-radius-lg);background:linear-gradient(var(--ax-surface),var(--ax-surface)) padding-box,var(--ax-grad) border-box;border:1px solid transparent;text-align:center;position:relative;overflow:hidden;}
+.cta-banner::before{content:"";position:absolute;top:-50%;left:50%;width:600px;height:600px;transform:translateX(-50%);background:radial-gradient(circle,rgba(0,210,255,.15) 0%,transparent 60%);pointer-events:none;}
+.cta-banner h2{margin-bottom:1rem;position:relative;font-size:clamp(2rem,4vw,3rem);}
+.cta-banner p{max-width:600px;margin:0 auto 2rem;font-size:1.1rem;position:relative;}
+.cta-actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;position:relative;}
+
+/* FOOTER */
+.footer{background:#010a16;border-top:1px solid rgba(255,255,255,.05);padding:4rem 0 2rem;}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem;}
+.footer-brand p{font-size:.9rem;margin-top:1rem;max-width:300px;}
+.footer h4{font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ax-text);margin-bottom:1.5rem;font-family:'Space Grotesk',sans-serif;}
+.footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.8rem;}
+.footer ul a{color:var(--ax-text-muted);font-size:.95rem;}
+.footer ul a:hover{color:var(--ax-cyan);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:2rem;display:flex;flex-direction:column;gap:1rem;align-items:center;text-align:center;font-size:.85rem;color:var(--ax-text-muted);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1);}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+  .reveal{opacity:1;transform:none;}
+}
+
+/* RESPONSIVE */
+@media (min-width:600px){
+  .services-detail-grid{grid-template-columns:repeat(2,1fr);}
+  .process-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-bottom{flex-direction:row;justify-content:space-between;text-align:left;}
+}
+@media (min-width:960px){
+  .nav-links{display:flex;}
+  .menu-btn{display:none;}
+  .nav-cta{display:inline-flex;}
+  .services-detail-grid{grid-template-columns:repeat(3,1fr);}
+  .process-grid{grid-template-columns:repeat(4,1fr);}
+  .footer-grid{grid-template-columns:1.5fr 1fr 1fr;}
+}
+@media (max-width:959px){
+  .nav-links{display:none;}
+  .menu-btn{display:flex;}
+  .nav-cta{display:none;}
+  .drawer,.backdrop{display:block;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="axiumsystems home">
+      <span class="brand-logo">
+        <img src="logo.jpg" alt="axiumsystems logo">
+      </span>
+      <span class="brand-text"><strong>AXIUM</strong><small>SYSTEMS</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-primary nav-cta">
+      Let's Talk
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="downloads.html">Downloads</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;margin-top:1.5rem;">
+    Chat on WhatsApp
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </a>
+</aside>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Our Services</span>
+      <h1 class="reveal">Solutions That <span class="grad-text">Drive Growth.</span></h1>
+      <p class="reveal">We don't just write code. We build the exact tools your organization needs to operate faster, smarter, and more securely.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="services-detail-grid">
+
+        <!-- 1. Web & E-commerce -->
+        <div class="service-detail-card reveal" id="web">
+          <div class="sd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Website & E-commerce</h3>
+          <p>High-converting business websites, online stores, and progressive web apps built to capture leads and drive sales.</p>
+          <ul class="sd-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Corporate Business Sites</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> E-commerce Platforms</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Landing Pages & Portfolios</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Progressive Web Apps (PWAs)</li>
+          </ul>
+          <div class="sd-action">
+            <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 2. Business Management Software -->
+        <div class="service-detail-card reveal" id="software">
+          <div class="sd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3>Business Software</h3>
+          <p>Custom ERP systems, inventory management, and internal tools tailored exactly to your operational workflow.</p>
+          <ul class="sd-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Custom ERP Systems</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Inventory & Billing Software</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> HR & Payroll Systems</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Internal Chat & Comms Tools</li>
+          </ul>
+          <div class="sd-action">
+            <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 3. School Management -->
+        <div class="service-detail-card reveal" id="school">
+          <div class="sd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>School Management</h3>
+          <p>Comprehensive digital systems for schools to manage students, results, fees, and exams efficiently.</p>
+          <ul class="sd-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Student Records & Portals</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> CBT Exam Simulators</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Report Card Generators</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Fee Tracking & Accounting</li>
+          </ul>
+          <div class="sd-action">
+            <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 4. Hospital Management -->
+        <div class="service-detail-card reveal" id="hospital">
+          <div class="sd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Hospital Management</h3>
+          <p>Secure, HIPAA-conscious digital tools for healthcare providers to manage patients and staff.</p>
+          <ul class="sd-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Electronic Medical Records</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Patient Scheduling & Queues</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Pharmacy & Inventory</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Billing & Insurance Claims</li>
+          </ul>
+          <div class="sd-action">
+            <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 5. Hotel Management -->
+        <div class="service-detail-card reveal" id="hotel">
+          <div class="sd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg>
+          </div>
+          <h3>Hotel Management</h3>
+          <p>Streamline front desk operations, bookings, and guest experiences with custom hospitality software.</p>
+          <ul class="sd-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Room Booking & Reservations</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Front Desk & Check-in Systems</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Housekeeping Management</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Restaurant & Bar POS</li>
+          </ul>
+          <div class="sd-action">
+            <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 6. Mobile & App Development -->
+        <div class="service-detail-card reveal" id="mobile">
+          <div class="sd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+          </div>
+          <h3>Mobile & Desktop Apps</h3>
+          <p>Native and cross-platform mobile applications for Android and iOS, plus robust offline desktop software.</p>
+          <ul class="sd-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Android & iOS Applications</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Flutter / React Native Apps</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Windows Desktop Apps (Electron)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Offline-capable Applications</li>
+          </ul>
+          <div class="sd-action">
+            <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 7. AI & Automation -->
+        <div class="service-detail-card reveal" id="ai">
+          <div class="sd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>AI Integration</h3>
+          <p>Leverage artificial intelligence to automate workflows, analyze data, and enhance user experiences.</p>
+          <ul class="sd-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Smart Chatbots & Assistants</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Document Analysis (RAG)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Automated Data Entry</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Custom AI Workflows</li>
+          </ul>
+          <div class="sd-action">
+            <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 8. Maintenance & Support -->
+        <div class="service-detail-card reveal" id="maintenance">
+          <div class="sd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Maintenance & Support</h3>
+          <p>We don't abandon our launches. We provide ongoing support, security updates, and server maintenance.</p>
+          <ul class="sd-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> 24/7 Technical Support</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Security Audits & Patching</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Website & Server Maintenance</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Performance Optimization</li>
+          </ul>
+          <div class="sd-action">
+            <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 9. Custom Software -->
+        <div class="service-detail-card reveal" id="custom">
+          <div class="sd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+          </div>
+          <h3>Custom Software</h3>
+          <p>Have a unique problem that no off-the-shelf software can solve? We build solutions from scratch.</p>
+          <ul class="sd-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Bespoke Web Applications</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> API Development & Integration</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Database Architecture</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Legacy System Upgrades</li>
+          </ul>
+          <div class="sd-action">
+            <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">Inquire Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="section process-section">
+    <div class="container">
+      <div style="text-align:center;max-width:700px;margin:0 auto 4rem;" class="reveal">
+        <span class="eyebrow" style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ax-cyan);margin-bottom:1rem;">Our Process</span>
+        <h2>How We Bring Ideas to Life</h2>
+        <p>We follow a rigorous, transparent process to ensure your project is delivered on time and works perfectly.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="process-num">1</div>
+          <h4>Discovery</h4>
+          <p>We listen. We learn how your business operates, identify the friction points, and define exactly what needs to be built.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">2</div>
+          <h4>Design</h4>
+          <p>We map out the user interface and system architecture. You see exactly how it will look and function before we code.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">3</div>
+          <h4>Development</h4>
+          <p>Our team writes clean, secure code. We build iteratively, testing the system at every stage to ensure reliability.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">4</div>
+          <h4>Launch & Support</h4>
+          <p>We deploy the software, train your team, and provide ongoing maintenance to ensure everything runs smoothly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="container">
+      <div style="text-align:center;max-width:700px;margin:0 auto 3rem;" class="reveal">
+        <h2>Frequently Asked Questions</h2>
+        <p>Common questions about working with axiumsystems.</p>
+      </div>
+
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <button class="faq-btn">
+            How long does a typical project take?
+            <div class="faq-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </button>
+          <div class="faq-content">
+            <p>Timelines vary based on complexity. A professional business website typically takes 2-4 weeks. A custom management system (like a hospital or school portal) usually takes 1-3 months. We will give you a precise timeline after our initial discovery call.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn">
+            Do you provide hosting and domain names?
+            <div class="faq-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </button>
+          <div class="faq-content">
+            <p>Yes, we can help you purchase your domain and set up secure, high-performance cloud hosting. Alternatively, if you already have hosting, we can deploy directly to your servers.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn">
+            Will I be able to update the website myself?
+            <div class="faq-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </button>
+          <div class="faq-content">
+            <p>Absolutely. For websites, we can build a custom admin dashboard where you can easily change text and images. For complex management systems, we provide training and user manuals so your staff can manage day-to-day operations easily.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn">
+            What happens after the software is launched?
+            <div class="faq-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </button>
+          <div class="faq-content">
+            <p>We don't just disappear. We offer comprehensive maintenance packages that cover bug fixes, security updates, server monitoring, and minor feature additions to ensure your software continues to run flawlessly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Skip the forms. Reach out to us directly on WhatsApp or give us a call. Let's discuss your vision.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-primary">
+          Chat on WhatsApp
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tel:+2348139985375" class="btn btn-outline">
+          Call Us Directly
+        </a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-logo">
+            <img src="logo.jpg" alt="axiumsystems logo">
+          </span>
+          <span class="brand-text"><strong>AXIUM</strong><small>SYSTEMS</small></span>
+        </a>
+        <p>Modern, reliable and scalable digital solutions designed to help your business grow faster.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="projects.html">Our Projects</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#web">Website & E-commerce</a></li>
+          <li><a href="services.html#software">Business Software</a></li>
+          <li><a href="services.html#school">School Management</a></li>
+          <li><a href="services.html#hospital">Hospital Management</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> axiumsystems. All rights reserved.</span>
+      <span>Built with precision.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* NAVBAR SCROLL */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* MOBILE MENU */
+const menuBtn = document.getElementById('menuBtn');
+const drawer = document.getElementById('drawer');
+const backdrop = document.getElementById('backdrop');
+
+function openMenu(){
+  document.body.classList.add('menu-open','no-scroll');
+  menuBtn.setAttribute('aria-expanded','true');
+}
+function closeMenu(){
+  document.body.classList.remove('menu-open','no-scroll');
+  menuBtn.setAttribute('aria-expanded','false');
+}
+menuBtn.addEventListener('click', () => {
+  document.body.classList.contains('menu-open') ? closeMenu() : openMenu();
+});
+backdrop.addEventListener('click', closeMenu);
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+/* SCROLL REVEAL */
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){ 
+        entry.target.classList.add('in'); 
+        io.unobserve(entry.target); 
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  revealEls.forEach(el => io.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('in'));
+}
+
+/* FAQ ACCORDION */
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+  const btn = item.querySelector('.faq-btn');
+  btn.addEventListener('click', () => {
+    // Close others
+    faqItems.forEach(other => {
+      if (other !== item) other.classList.remove('active');
+    });
+    // Toggle current
+    item.classList.toggle('active');
+  });
+});
+
+/* FOOTER YEAR */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

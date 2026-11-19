@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#021124" />
+<title>axiumsystems — Professional Websites & Business Software</title>
+<meta name="description" content="We build modern, reliable, and scalable digital solutions designed to help your business grow faster. Website development, business software, and management systems." />
+
+<!-- Favicon -->
+<link rel="icon" href="logo.jpg" type="image/jpeg">
+<link rel="apple-touch-icon" href="logo.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* PREMIUM CORPORATE DARK BLUE THEME */
+  --ax-bg:#021124;
+  --ax-surface:#062246;
+  --ax-surface-2:#0a3163;
+  --ax-border:#124b91;
+  --ax-text:#ffffff;
+  --ax-text-muted:#a0c4e8;
+  --ax-cyan:#00d2ff;
+  --ax-blue:#0056D2;
+  --ax-grad:linear-gradient(135deg,#00d2ff 0%,#0056D2 100%);
+  --ax-radius:16px;
+  --ax-radius-lg:24px;
+  --ax-shadow:0 15px 35px -10px rgba(0,0,0,.5);
+  --ax-trans:.3s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--ax-bg);color:var(--ax-text);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body.no-scroll{overflow:hidden;}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.1;letter-spacing:-.02em;margin:0 0 .6em;color:var(--ax-text);}
+h1{font-size:clamp(2.5rem,6vw,4.5rem);}
+h2{font-size:clamp(2rem,4vw,3rem);}
+h3{font-size:clamp(1.2rem,2vw,1.4rem);}
+p{margin:0 0 1rem;color:var(--ax-text-muted);}
+a{color:var(--ax-cyan);text-decoration:none;transition:color var(--ax-trans);}
+a:hover{color:var(--ax-text);}
+img{max-width:100%;display:block;}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit;}
+
+.container{width:min(100% - 2rem,1280px);margin-inline:auto;}
+.grad-text{background:var(--ax-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.section{padding:clamp(4rem,8vw,7rem) 0;position:relative;}
+.section-head{max-width:800px;margin:0 auto clamp(2.5rem,5vw,4rem);text-align:center;}
+.section-head .eyebrow{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ax-cyan);margin-bottom:1rem;background:rgba(0,210,255,.1);padding:.3rem .8rem;border-radius:99px;border:1px solid rgba(0,210,255,.2);}
+.section-head p{font-size:1.1rem;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.9rem 1.8rem;border-radius:99px;font-weight:600;font-size:1rem;transition:all var(--ax-trans);border:1px solid transparent;text-decoration:none;}
+.btn-primary{background:var(--ax-cyan);color:#021124;}
+.btn-primary:hover{color:#021124;transform:translateY(-3px);box-shadow:0 15px 30px -10px rgba(0,210,255,.5);}
+.btn-outline{background:transparent;color:var(--ax-text);border-color:var(--ax-border);}
+.btn-outline:hover{border-color:var(--ax-cyan);color:var(--ax-cyan);transform:translateY(-3px);background:rgba(0,210,255,.05);}
+.btn svg{width:18px;height:18px;flex:none;}
+
+/* NAVBAR */
+.nav{position:fixed;inset:0 0 auto 0;z-index:1000;padding:1.2rem 0;transition:all var(--ax-trans);border-bottom:1px solid transparent;}
+.nav.scrolled{background:rgba(2,17,36,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--ax-border);padding:.8rem 0;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;}
+.brand{display:flex;align-items:center;gap:.85rem;text-decoration:none;flex:none;}
+.brand-logo{width:46px;height:46px;border-radius:12px;padding:2px;background:var(--ax-grad);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 15px -4px rgba(0,210,255,.4);}
+.brand-logo img{width:100%;height:100%;border-radius:10px;object-fit:cover;background:#062246;}
+.brand-text{display:flex;flex-direction:column;line-height:1;}
+.brand-text strong{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:.05em;color:var(--ax-text);}
+.brand-text small{font-size:.6rem;letter-spacing:.25em;color:var(--ax-text-muted);margin-top:.3rem;font-weight:600;}
+
+.nav-links{display:flex;align-items:center;gap:.5rem;list-style:none;margin:0;padding:0;}
+.nav-links a{padding:.6rem 1rem;font-size:.95rem;font-weight:500;color:var(--ax-text-muted);border-radius:8px;}
+.nav-links a:hover{color:var(--ax-text);background:rgba(255,255,255,.05);}
+.nav-links a.active{color:var(--ax-text);}
+.nav-cta{margin-left:.5rem;}
+.menu-btn{display:none;width:44px;height:44px;border-radius:10px;align-items:center;justify-content:center;border:1px solid var(--ax-border);background:var(--ax-surface);}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--ax-text);position:relative;border-radius:2px;transition:background .2s;}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--ax-text);border-radius:2px;transition:transform var(--ax-trans);}
+.menu-btn span::before{top:-6px;}
+.menu-btn span::after{top:6px;}
+body.menu-open .menu-btn span{background:transparent;}
+body.menu-open .menu-btn span::before{transform:translateY(6px) rotate(45deg);}
+body.menu-open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg);}
+
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity var(--ax-trans);z-index:998;}
+body.menu-open .backdrop{opacity:1;pointer-events:auto;}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(320px,85vw);background:var(--ax-surface);border-left:1px solid var(--ax-border);padding:6rem 1.5rem 2rem;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:999;}
+body.menu-open .drawer{transform:translateX(0);}
+.drawer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem;}
+.drawer a{display:block;padding:1rem;font-size:1.1rem;font-weight:500;color:var(--ax-text-muted);border-radius:10px;}
+.drawer a:hover,.drawer a.active{color:var(--ax-text);background:var(--ax-surface-2);}
+
+/* CENTERED HERO SECTION */
+.hero{position:relative;padding:clamp(10rem,18vw,14rem) 0 clamp(5rem,10vw,8rem);overflow:hidden;text-align:center;display:flex;flex-direction:column;align-items:center;}
+.hero::before{content:"";position:absolute;top:-20%;left:50%;width:min(1200px,150vw);height:min(1200px,150vw);transform:translateX(-50%);background:radial-gradient(circle at center,rgba(0,210,255,.15) 0%,transparent 60%);pointer-events:none;z-index:0;}
+
+.hero-centered{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:100%;}
+.hero-subtitle-top{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:500;color:var(--ax-text-muted);margin-bottom:.5rem;letter-spacing:-.01em;}
+.hero-title{font-size:clamp(4rem,10vw,7rem);font-style:italic;font-weight:800;text-transform:uppercase;line-height:.95;margin-bottom:1.5rem;letter-spacing:-.03em;}
+.hero-desc{font-size:clamp(1.1rem,1.5vw,1.3rem);margin-bottom:2.5rem;max-width:700px;line-height:1.6;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:4rem;}
+
+/* WIDE DASHBOARD MOCKUP */
+.hero-dashboard{width:100%;max-width:1000px;background:#0a1120;border-radius:16px;border:2px solid #1a2c4e;position:relative;box-shadow:0 30px 60px -15px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,210,255,0.1);padding:12px;display:flex;flex-direction:column;margin:0 auto;}
+.dash-header{height:32px;background:#062246;border-bottom:1px solid #124b91;border-radius:8px 8px 0 0;display:flex;align-items:center;padding:0 16px;gap:8px;}
+.dash-dot{width:10px;height:10px;border-radius:50%;background:#ff5f56;}
+.dash-dot:nth-child(2){background:#ffbd2e;}
+.dash-dot:nth-child(3){background:#27c93f;}
+.dash-body{background:#021124;border-radius:0 0 8px 8px;padding:24px;display:grid;grid-template-columns:1fr 3fr;gap:24px;text-align:left;min-height:300px;}
+.dash-sidebar{display:flex;flex-direction:column;gap:12px;}
+.dash-menu-item{height:12px;background:#124b91;border-radius:6px;width:80%;opacity:0.5;}
+.dash-menu-item.active{background:var(--ax-cyan);width:100%;opacity:1;}
+.dash-content{display:flex;flex-direction:column;gap:20px;}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.dash-stat{background:#062246;border:1px solid #124b91;border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;}
+.dash-stat-val{height:20px;width:60%;background:var(--ax-cyan);border-radius:4px;opacity:0.8;}
+.dash-stat-label{height:8px;width:40%;background:#124b91;border-radius:4px;}
+.dash-chart{flex:1;background:#062246;border:1px solid #124b91;border-radius:8px;position:relative;overflow:hidden;padding:16px;display:flex;align-items:flex-end;gap:8px;}
+.dash-bar{flex:1;background:var(--ax-grad);border-radius:4px 4px 0 0;opacity:0.8;}
+
+/* TRUST BAR */
+.trust-bar{background:var(--ax-surface);border-top:1px solid var(--ax-border);border-bottom:1px solid var(--ax-border);padding:2rem 0;}
+.trust-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;}
+.trust-item{display:flex;align-items:center;gap:1rem;}
+.trust-icon{width:48px;height:48px;border-radius:12px;background:rgba(0,210,255,.1);display:flex;align-items:center;justify-content:center;color:var(--ax-cyan);flex:none;}
+.trust-icon svg{width:24px;height:24px;}
+.trust-text strong{display:block;color:var(--ax-text);font-size:1rem;font-family:'Space Grotesk',sans-serif;}
+.trust-text span{font-size:.85rem;color:var(--ax-text-muted);}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;}
+.service-card{background:var(--ax-surface);border:1px solid var(--ax-border);border-radius:var(--ax-radius);padding:2.5rem 2rem;transition:all var(--ax-trans);position:relative;overflow:hidden;}
+.service-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--ax-grad);transform:scaleX(0);transform-origin:left;transition:transform var(--ax-trans);}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--ax-shadow);border-color:rgba(0,210,255,.3);background:var(--ax-surface-2);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-icon{width:56px;height:56px;border-radius:16px;background:rgba(0,210,255,.08);border:1px solid rgba(0,210,255,.2);display:flex;align-items:center;justify-content:center;color:var(--ax-cyan);margin-bottom:1.5rem;transition:all var(--ax-trans);}
+.service-card:hover .service-icon{background:var(--ax-cyan);color:#021124;}
+.service-icon svg{width:28px;height:28px;}
+.service-card h3{margin-bottom:1rem;font-size:1.25rem;}
+.service-card p{font-size:.95rem;margin-bottom:1.5rem;line-height:1.6;}
+.service-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;color:var(--ax-cyan);}
+.service-link svg{width:16px;height:16px;transition:transform var(--ax-trans);}
+.service-card:hover .service-link svg{transform:translateX(4px);}
+
+/* WHY CHOOSE US */
+.why-section{background:var(--ax-surface);border-top:1px solid var(--ax-border);border-bottom:1px solid var(--ax-border);}
+.why-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;}
+.why-content h2{margin-bottom:1.5rem;}
+.why-content p{font-size:1.1rem;margin-bottom:2rem;}
+.why-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1.25rem;}
+.why-list li{display:flex;gap:1rem;align-items:flex-start;}
+.why-list svg{width:24px;height:24px;color:var(--ax-cyan);flex:none;margin-top:.2rem;}
+.why-list strong{display:block;color:var(--ax-text);font-size:1.05rem;margin-bottom:.25rem;font-family:'Space Grotesk',sans-serif;}
+.why-list span{font-size:.95rem;color:var(--ax-text-muted);}
+
+.why-visual{background:linear-gradient(135deg, rgba(6,34,70,1) 0%, rgba(2,17,36,1) 100%);border:1px solid var(--ax-border);border-radius:var(--ax-radius-lg);padding:3rem 2rem;position:relative;overflow:hidden;text-align:center;}
+.why-visual::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at top right, rgba(0,210,255,.15) 0%, transparent 60%);}
+.why-quote{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:700;line-height:1.3;color:var(--ax-text);position:relative;z-index:1;margin-bottom:1.5rem;}
+.why-quote span{color:var(--ax-cyan);}
+.why-author{font-family:'JetBrains Mono',monospace;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ax-text-muted);position:relative;z-index:1;}
+
+/* FEATURED PROJECTS */
+.projects-grid{display:grid;grid-template-columns:1fr;gap:2rem;}
+.project-card{background:var(--ax-surface);border:1px solid var(--ax-border);border-radius:var(--ax-radius);overflow:hidden;transition:all var(--ax-trans);display:flex;flex-direction:column;}
+.project-card:hover{transform:translateY(-5px);border-color:rgba(0,210,255,.3);box-shadow:var(--ax-shadow);}
+.project-header{padding:2rem;background:linear-gradient(180deg, rgba(10,49,99,0.5) 0%, transparent 100%);border-bottom:1px solid var(--ax-border);display:flex;align-items:center;gap:1rem;}
+.project-icon{width:48px;height:48px;border-radius:12px;background:var(--ax-grad);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#021124;font-size:1.2rem;flex:none;}
+.project-header h3{margin:0;font-size:1.2rem;}
+.project-body{padding:1.5rem 2rem 2rem;flex:1;display:flex;flex-direction:column;}
+.project-body p{font-size:.95rem;margin-bottom:1.5rem;flex:1;}
+.project-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;}
+.project-tags span{font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:.3rem .6rem;border-radius:4px;background:rgba(255,255,255,.05);border:1px solid var(--ax-border);color:var(--ax-text-muted);}
+.project-link{font-size:.9rem;font-weight:600;color:var(--ax-cyan);display:inline-flex;align-items:center;gap:.5rem;}
+.project-link svg{width:16px;height:16px;}
+
+/* CONTACT CTA */
+.contact-cta{position:relative;padding:clamp(4rem,8vw,6rem) 0;background:linear-gradient(180deg, var(--ax-bg) 0%, var(--ax-surface) 100%);border-top:1px solid var(--ax-border);text-align:center;}
+.contact-cta h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;}
+.contact-cta p{font-size:1.1rem;max-width:600px;margin:0 auto 3rem;}
+.contact-methods{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:1000px;margin:0 auto;}
+.contact-card{display:flex;align-items:center;gap:1.25rem;padding:1.5rem;background:var(--ax-surface);border:1px solid var(--ax-border);border-radius:var(--ax-radius);transition:all var(--ax-trans);text-decoration:none;text-align:left;position:relative;overflow:hidden;}
+.contact-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ax-grad);opacity:0;transition:opacity var(--ax-trans);}
+.contact-card:hover{transform:translateY(-4px);border-color:rgba(0,210,255,.4);box-shadow:0 10px 25px -5px rgba(0,0,0,0.5);}
+.contact-card:hover::before{opacity:1;}
+.contact-card-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;flex:none;}
+.contact-card-icon svg{width:28px;height:28px;}
+.contact-card-icon.phone{background:rgba(0,86,210,.15);color:#4da6ff;}
+.contact-card-icon.wa{background:rgba(37,211,102,.15);color:#25D366;}
+.contact-card-icon.mail{background:rgba(0,210,255,.15);color:var(--ax-cyan);}
+.contact-card-text{flex:1;}
+.contact-card-text span{display:block;font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ax-text-muted);margin-bottom:.25rem;}
+.contact-card-text strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.1rem;color:var(--ax-text);word-break:break-all;}
+
+/* FOOTER */
+.footer{background:#010a16;border-top:1px solid rgba(255,255,255,.05);padding:4rem 0 2rem;}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem;}
+.footer-brand p{font-size:.9rem;margin-top:1rem;max-width:300px;}
+.footer h4{font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ax-text);margin-bottom:1.5rem;font-family:'Space Grotesk',sans-serif;}
+.footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.8rem;}
+.footer ul a{color:var(--ax-text-muted);font-size:.95rem;display:inline-flex;align-items:center;gap:.5rem;}
+.footer ul a:hover{color:var(--ax-cyan);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:2rem;display:flex;flex-direction:column;gap:1rem;align-items:center;text-align:center;font-size:.85rem;color:var(--ax-text-muted);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1);}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+  .reveal{opacity:1;transform:none;}
+}
+
+/* RESPONSIVE */
+@media (min-width:600px){
+  .trust-grid{grid-template-columns:repeat(2,1fr);}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .projects-grid{grid-template-columns:repeat(2,1fr);}
+  .contact-methods{grid-template-columns:repeat(3,1fr);}
+  .contact-card{flex-direction:column;text-align:center;padding:2.5rem 1.5rem;}
+  .contact-card-text{text-align:center;}
+  .footer-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-bottom{flex-direction:row;justify-content:space-between;text-align:left;}
+}
+@media (min-width:960px){
+  .nav-links{display:flex;}
+  .menu-btn{display:none;}
+  .nav-cta{display:inline-flex;}
+  .services-grid{grid-template-columns:repeat(3,1fr);}
+  .why-grid{grid-template-columns:1fr 1fr;gap:5rem;}
+  .projects-grid{grid-template-columns:repeat(3,1fr);}
+  .contact-methods{grid-template-columns:repeat(3,1fr);}
+  .footer-grid{grid-template-columns:1.5fr 1fr 1fr;}
+  .dash-body{grid-template-columns:200px 1fr;}
+}
+@media (max-width:959px){
+  .nav-links{display:none;}
+  .menu-btn{display:flex;}
+  .nav-cta{display:none;}
+  .drawer,.backdrop{display:block;}
+  .dash-body{grid-template-columns:1fr;}
+  .dash-sidebar{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="axiumsystems home">
+      <span class="brand-logo">
+        <img src="logo.jpg" alt="axiumsystems logo">
+      </span>
+      <span class="brand-text"><strong>AXIUM</strong><small>SYSTEMS</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-primary nav-cta">
+      Let's Talk
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer">
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="downloads.html">Downloads</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;margin-top:1.5rem;">
+    Chat on WhatsApp
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </a>
+</aside>
+
+<main>
+
+  <!-- CENTERED HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-centered">
+      <div class="hero-text reveal">
+        <p class="hero-subtitle-top">Need a Professional Website or Business Software?</p>
+        <h1 class="hero-title grad-text">We Build.</h1>
+        <p class="hero-desc">Modern, reliable and scalable digital solutions designed to help your business grow faster.</p>
+        
+        <div class="hero-actions">
+          <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="btn btn-primary">
+            Start a Project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="services.html" class="btn btn-outline">
+            Explore Services
+          </a>
+        </div>
+      </div>
+      
+      <!-- Wide Dashboard Visual -->
+      <div class="hero-dashboard reveal">
+        <div class="dash-header">
+          <div class="dash-dot"></div><div class="dash-dot"></div><div class="dash-dot"></div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-sidebar">
+            <div class="dash-menu-item active"></div>
+            <div class="dash-menu-item"></div>
+            <div class="dash-menu-item"></div>
+            <div class="dash-menu-item"></div>
+            <div class="dash-menu-item"></div>
+          </div>
+          <div class="dash-content">
+            <div class="dash-stats">
+              <div class="dash-stat">
+                <div class="dash-stat-val"></div>
+                <div class="dash-stat-label"></div>
+              </div>
+              <div class="dash-stat">
+                <div class="dash-stat-val"></div>
+                <div class="dash-stat-label"></div>
+              </div>
+              <div class="dash-stat">
+                <div class="dash-stat-val"></div>
+                <div class="dash-stat-label"></div>
+              </div>
+            </div>
+            <div class="dash-chart">
+              <div class="dash-bar" style="height: 40%;"></div>
+              <div class="dash-bar" style="height: 60%;"></div>
+              <div class="dash-bar" style="height: 30%;"></div>
+              <div class="dash-bar" style="height: 80%;"></div>
+              <div class="dash-bar" style="height: 50%;"></div>
+              <div class="dash-bar" style="height: 90%;"></div>
+              <div class="dash-bar" style="height: 70%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar reveal">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div class="trust-text">
+          <strong>Secure Solutions</strong>
+          <span>Enterprise-grade security</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="trust-text">
+          <strong>Fast & Reliable</strong>
+          <span>Optimized performance</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2v1M12 7v1M5 5l1 1M18 5l-1 1M2 12h1M21 12h1"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <div class="trust-text">
+          <strong>Creative Designs</strong>
+          <span>Modern, user-centric UI</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        </div>
+        <div class="trust-text">
+          <strong>24/7 Support</strong>
+          <span>Always here to help</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Services</span>
+        <h2>What We Build</h2>
+        <p>From simple websites to complex enterprise systems, we bring your ideas to life with precision and purpose.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Website & E-commerce</h3>
+          <p>High-converting business websites, online stores, and progressive web apps built for growth.</p>
+          <a href="services.html#web" class="service-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3>Business Software</h3>
+          <p>Custom ERP systems, inventory management, and internal tools tailored to your operations.</p>
+          <a href="services.html#software" class="service-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>School Management</h3>
+          <p>Comprehensive systems for student records, report cards, fee tracking, and CBT exams.</p>
+          <a href="services.html#school" class="service-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Hospital Management</h3>
+          <p>Secure patient portals, scheduling systems, and electronic medical records for healthcare.</p>
+          <a href="services.html#hospital" class="service-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg>
+          </div>
+          <h3>Hotel Management</h3>
+          <p>Streamline bookings, front desk operations, and guest experiences with custom software.</p>
+          <a href="services.html#hotel" class="service-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+          </div>
+          <h3>Mobile App Development</h3>
+          <p>Native and cross-platform mobile applications for Android and iOS devices.</p>
+          <a href="services.html#mobile" class="service-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section why-section">
+    <div class="container why-grid">
+      <div class="why-content reveal">
+        <span class="eyebrow" style="color:var(--ax-cyan);font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:1rem;display:block;">Why Choose Us</span>
+        <h2>Your Vision. <span class="grad-text">Our Technology.</span></h2>
+        <p>We don't just write code. We solve business problems. Every system we build is designed from the ground up to fit your exact workflow, ensuring you get a tool that actually works for you.</p>
+        
+        <ul class="why-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+            <div>
+              <strong>Purpose-Built Solutions</strong>
+              <span>No bloated templates. We build exactly what your business needs to succeed.</span>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+            <div>
+              <strong>Scalable Architecture</strong>
+              <span>Systems built to grow with your organization, from 10 users to 10,000.</span>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+            <div>
+              <strong>Dedicated Support</strong>
+              <span>We don't abandon our launches. We provide ongoing maintenance and 24/7 support.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="why-visual reveal">
+        <div class="why-quote">
+          "We measure success by software that runs in production and gets used, <span>not by how many demos we can make.</span>"
+        </div>
+        <div class="why-author">— The axiumsystems Philosophy</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Work</span>
+        <h2>Real Systems. Real Results.</h2>
+        <p>A look at some of the digital solutions we have successfully deployed for our clients.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon">CBT</div>
+            <h3>CBT Master</h3>
+          </div>
+          <div class="project-body">
+            <p>An offline exam simulator and deployment system designed for schools and training centers with unreliable internet connectivity.</p>
+            <div class="project-tags">
+              <span>Windows App</span>
+              <span>Offline</span>
+              <span>Education</span>
+            </div>
+            <a href="projects.html" class="project-link">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon" style="background:linear-gradient(135deg,#008751 0%,#00B96B 100%);color:#fff;">UN</div>
+            <h3>UMYU Network</h3>
+          </div>
+          <div class="project-body">
+            <p>A verified campus social platform and communications hub for a university community, featuring real-time chat and announcements.</p>
+            <div class="project-tags">
+              <span>PWA</span>
+              <span>Community</span>
+              <span>Firebase</span>
+            </div>
+            <a href="projects.html" class="project-link">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon" style="background:linear-gradient(135deg,#7C3AED 0%,#EC4899 100%);color:#fff;">AR</div>
+            <h3>Axium Reports</h3>
+          </div>
+          <div class="project-body">
+            <p>A custom report card generator and student data management tool built to streamline administrative workflows for schools.</p>
+            <div class="project-tags">
+              <span>Web App</span>
+              <span>Data Mgmt</span>
+              <span>Education</span>
+            </div>
+            <a href="projects.html" class="project-link">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta">
+    <div class="container">
+      <div class="reveal">
+        <h2>Let's Build Your Digital Presence Today</h2>
+        <p>Ready to take your business to the next level? Reach out to us directly. We reply fast.</p>
+      </div>
+
+      <div class="contact-methods reveal">
+        <!-- Phone -->
+        <a href="tel:+2348139985375" class="contact-card">
+          <div class="contact-card-icon phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contact-card-text">
+            <span>Call Us</span>
+            <strong>0813 998 5375</strong>
+          </div>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/2349022683043" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-card-icon wa">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div class="contact-card-text">
+            <span>WhatsApp</span>
+            <strong>+234 902 268 3043</strong>
+          </div>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:Ismailhabibismail2003@gmail.com" class="contact-card">
+          <div class="contact-card-icon mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+          </div>
+          <div class="contact-card-text">
+            <span>Email Us</span>
+            <strong>Ismailhabibismail2003@gmail.com</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-logo">
+            <img src="logo.jpg" alt="axiumsystems logo">
+          </span>
+          <span class="brand-text"><strong>AXIUM</strong><small>SYSTEMS</small></span>
+        </a>
+        <p>Modern, reliable and scalable digital solutions designed to help your business grow faster.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="projects.html">Our Projects</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#web">Website & E-commerce</a></li>
+          <li><a href="services.html#management">Management Systems</a></li>
+          <li><a href="services.html#mobile">Mobile Apps</a></li>
+          <li><a href="services.html#software">Custom Software</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> axiumsystems. All rights reserved.</span>
+      <span>Built with precision.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* NAVBAR SCROLL */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* MOBILE MENU */
+const menuBtn = document.getElementById('menuBtn');
+const drawer = document.getElementById('drawer');
+const backdrop = document.getElementById('backdrop');
+
+function openMenu(){
+  document.body.classList.add('menu-open','no-scroll');
+  menuBtn.setAttribute('aria-expanded','true');
+}
+function closeMenu(){
+  document.body.classList.remove('menu-open','no-scroll');
+  menuBtn.setAttribute('aria-expanded','false');
+}
+menuBtn.addEventListener('click', () => {
+  document.body.classList.contains('menu-open') ? closeMenu() : openMenu();
+});
+backdrop.addEventListener('click', closeMenu);
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+/* SCROLL REVEAL */
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){ 
+        entry.target.classList.add('in'); 
+        io.unobserve(entry.target); 
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  revealEls.forEach(el => io.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('in'));
+}
+
+/* FOOTER YEAR */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
